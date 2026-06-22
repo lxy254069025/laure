@@ -1,0 +1,19 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+UseTab: Never
+PointerAlignment: Right
+# Break after operators
+BreakBeforeBraces: Attach
+# Align variables on consecutive lines
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+# Align trailing comments
+AlignTrailingComments: true
+# Include categories in include directives
+# IncludeCategories:
+#   - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
+#     Priority:        2
+#   - Regex:           '^(<|"(gtest|isl|json)/)'
+#     Priority:        3
+#   - Regex:           '.*'
+#     Priority:        1

@@ -1,0 +1,7 @@
+ARG_ENABLE('laure', 'laure support', 'no');
+
+if (PHP_LAURE != 'no') {
+	AC_DEFINE('HAVE_LAURE', 1, "Define to 1 if the PHP extension 'laure' is available.");
+
+	EXTENSION('laure', 'laure.c', null, '/DZEND_ENABLE_STATIC_TSRMLS_CACHE=1');
+}
