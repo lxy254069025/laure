@@ -46,3 +46,4 @@ tests/**/*.mem
 tmp-php.ini
 *~
 libuv.mk
+.cache
