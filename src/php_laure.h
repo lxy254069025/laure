@@ -7,11 +7,7 @@
 #include <config.h>
 #endif
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#include <uv.h>
+#include "uv.h"
 
 #include "php.h"
 #include "php_ini.h"
@@ -31,9 +27,6 @@ extern "C" {
 #include "zend_errors.h"
 #include "zend_frameless_function.h"
 #include "zend_property_hooks.h"
-#ifdef __cplusplus
-}
-#endif
 
 extern zend_module_entry laure_module_entry;
 #define phpext_laure_ptr &laure_module_entry
