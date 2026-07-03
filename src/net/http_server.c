@@ -1,10 +1,11 @@
 #include "http_server.h"
+#include "conn.h"
 #include "llhttp.h"
-#include "net/conn.h"
 #include "php.h"
 #include "utils/khash.h"
 #include "utils/map.h"
 #include "utils/string.h"
+#include "websocket.h"
 
 #include "Zend/zend_smart_str.h"
 #include "utils/util.h"
@@ -81,10 +82,10 @@ static int cb_headers_complete(llhttp_t *p) {
 
     c->http_keep_alive = llhttp_should_keep_alive(p);
 
-    // if (laure_ws_is_upgrade(c)) {
-    //     c->state = LAURE_CONN_WS_HAND;
-    //     return HPE_PAUSED_UPGRADE;
-    // }
+    if (laure_ws_is_upgrade(c)) {
+        c->state = LAURE_CONN_WS_HAND;
+        return HPE_PAUSED_UPGRADE;
+    }
 
     return 0;
 }

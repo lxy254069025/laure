@@ -24,6 +24,8 @@ typedef struct {
     zend_object     std;
 } laure_res_obj_t;
 
+extern zend_class_entry *laure_http_server_ce;
+
 #define LAURE_REQ_OBJ(o)                                                       \
     ((laure_req_obj_t *)((char *)(o) - XtOffsetOf(laure_req_obj_t, std)))
 #define LAURE_REQ_P(zv) LAURE_REQ_OBJ(Z_OBJ_P(zv))
