@@ -214,7 +214,7 @@ void laure_conn_accept(laure_server_t *srv, uv_stream_t *handle) {
     }
 
     if (srv->type == LAURE_SERVER_WS || srv->type == LAURE_SERVER_WSS) {
-        // laure_ws_start(c);
+        laure_hb_start(c);
     }
 
     uv_read_start((uv_stream_t *)&c->handle, on_alloc, on_read);
@@ -335,7 +335,7 @@ PHP_METHOD(laure_conn, wsClose) {
 
     laure_conn_obj_t *o = LAURE_CONN_P(getThis());
     if (o->conn) {
-        // laure_ws_close(o->conn, code, reason?reason:"");
+        laure_ws_close(o->conn, code, reason ? reason : "");
     }
 }
 
